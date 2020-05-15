@@ -18,7 +18,10 @@ public class ImprimindoVariaveis {
 		char caractere = '\u0041'; // 2 bytes A
 		String nome = "Felipe";
 		
+		
 		System.out.println(caractere);
+		
+		
 	}
 
 }

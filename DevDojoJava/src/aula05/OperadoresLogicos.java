@@ -8,9 +8,9 @@ public class OperadoresLogicos {
 		
 		System.out.println(idade >= 18 && salario >= 1000); // true
 		System.out.println(idade >= 33 || salario >= 1000); // true
-		System.out.println(idade >= 33 || salario <= 1000); // true
-		
+		System.out.println(idade >= 33 || salario <= 1000); // false
+		 
 
 	}
 
-}
+ }

@@ -13,7 +13,7 @@ public class ArrayMultiDimensionais {
 		//SE TEMOS UM ARRAY BI-DIMENSIONAL, PRECISAMOS DE 2 FOR'S
 		
 		for (int i = 0; i < dias.length;i++) {
-			for (int j = i; j < dias[i].length;j++) {
+			for (int j = 0; j < dias[i].length;j++) {
 				System.out.println(dias[i][j]);
 			}
 		}

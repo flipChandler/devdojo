@@ -1,4 +1,4 @@
-package aula18;
+package br.com.felipesantos.aula18;
 
 public class ArrayMultiDimensionais {
 

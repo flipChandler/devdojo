@@ -1,4 +1,4 @@
-package aula05;
+package br.com.felipesantos.aula05;
 
 public class OperadoresDeComparacao {
 

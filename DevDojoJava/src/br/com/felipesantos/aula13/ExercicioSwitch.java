@@ -1,4 +1,4 @@
-package aula13;
+package br.com.felipesantos.aula13;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package aula14;
+package br.com.felipesantos.aula14;
 
 public class ExercicioLoop {
 	public static void main(String[] args) {

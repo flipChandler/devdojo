@@ -32,6 +32,8 @@ public class ExercicioFluxo {
 		
 		System.out.printf("O seu salário é %.2f e o total de impostos a pagar é %.2f", salario, imposto);
 		
+		//PAREI NA AULA 11
+		
 	}
 
 }

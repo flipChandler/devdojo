@@ -10,6 +10,11 @@ public class CalculadoraTest {
 		calculadora.somaDoisNumeros();
 		calculadora.subtraiDoisNumeros();
 		calculadora.multiplicaDoisNumeros(5, 10);
+		System.out.println(calculadora.divideDoisNumeros(140.0, 2));
+		
+		double resultadoDivisao = calculadora.divideDoisNumeros(200.70, 2);
+		
+		System.out.println(resultadoDivisao);
 		System.out.println("...Continuando a execução ");
 
 	}

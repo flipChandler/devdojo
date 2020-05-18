@@ -7,14 +7,15 @@ public class CalculadoraTest {
 	public static void main(String[] args) {
 		Calculadora calculadora = new Calculadora();
 		
-		calculadora.somaDoisNumeros();
-		calculadora.subtraiDoisNumeros();
-		calculadora.multiplicaDoisNumeros(5, 10);
-		System.out.println(calculadora.divideDoisNumeros(140.0, 2));
+		calculadora.somaDoisNumeros(); //10
+		calculadora.subtraiDoisNumeros();// 13
+		calculadora.multiplicaDoisNumeros(5, 10); // 50
+		System.out.println(calculadora.divideDoisNumeros(140.0, 2)); // 70
 		
-		double resultadoDivisao = calculadora.divideDoisNumeros(200.70, 2);
+		double resultadoDivisao = calculadora.divideDoisNumeros(200.70, 0);
 		
-		System.out.println(resultadoDivisao);
+		calculadora.imprimeDoisNumerosDivididos(10, 5); // infinity
+		System.out.println(resultadoDivisao); //
 		System.out.println("...Continuando a execução ");
 
 	}

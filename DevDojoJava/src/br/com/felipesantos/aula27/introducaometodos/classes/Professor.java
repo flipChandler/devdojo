@@ -6,11 +6,12 @@ public class Professor {
 	public String rg;
 	public String cpf;
 	
-	public void imprime(Professor prof) {
-		System.out.println(prof.cpf);
-		System.out.println(prof.matricula);
-		System.out.println(prof.nome);
-		System.out.println(prof.rg);
+	public void imprimeSeusDados() {
+		// this -> valores do proprio objeto que está chamando
+		System.out.println(this.nome);
+		System.out.println(this.matricula);
+		System.out.println(this.rg);
+		System.out.println(this.cpf);
 	}
 	
 }

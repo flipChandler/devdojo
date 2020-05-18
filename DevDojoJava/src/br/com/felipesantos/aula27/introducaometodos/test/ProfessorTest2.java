@@ -17,9 +17,9 @@ public class ProfessorTest2 {
 		prof2.nome = "Shania";
 		prof2.rg = "99999999";
 		
-		prof.imprime(prof);
+		prof.imprimeSeusDados();
 		System.out.println("--------PULA LINHA--------------");
-		prof2.imprime(prof2);
+		prof2.imprimeSeusDados();
 		
 		
 		

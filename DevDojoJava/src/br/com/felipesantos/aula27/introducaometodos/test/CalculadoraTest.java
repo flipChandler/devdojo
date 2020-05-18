@@ -15,7 +15,7 @@ public class CalculadoraTest {
 		double resultadoDivisao = calculadora.divideDoisNumeros(200.70, 0);
 		
 		calculadora.imprimeDoisNumerosDivididos(10, 5); // infinity
-		System.out.println(resultadoDivisao); //
+		System.out.println(resultadoDivisao); // 0
 		System.out.println("...Continuando a execução ");
 
 	}

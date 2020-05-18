@@ -9,6 +9,7 @@ public class CalculadoraTest {
 		
 		calculadora.somaDoisNumeros();
 		calculadora.subtraiDoisNumeros();
+		calculadora.multiplicaDoisNumeros(5, 10);
 		System.out.println("...Continuando a execução ");
 
 	}

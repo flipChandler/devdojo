@@ -4,7 +4,7 @@ public class Estudante {
 	private String nome;
 	private int idade;
 	private double[] notas;
-	
+	private boolean aprovado;
 	
 	public String getNome() {
 		return nome;
@@ -34,6 +34,10 @@ public class Estudante {
 	public void setNotas(double[] notas) {
 		this.notas = notas;
 	}
+	
+	public boolean isAprovado() {
+		return this.aprovado;
+	}
 
 	public void imprimeDados() {
 		System.out.println("Nome: " + this.nome);
@@ -62,11 +66,15 @@ public class Estudante {
 		media /= this.notas.length;
 		
 		if (media > 6) {
+			this.aprovado = true;
 			System.out.println("\nA média é " + media + " situação: Aprovado");
-			return; // funciona como break em if/else statement
-		}
-		
-		System.out.println("\nSituação: Reprovado");			
+		}else {
+			this.aprovado = false;
+			System.out.println("\nSituação: Reprovado");	
+		}		
 		
 	}
+	
+	
+	
 }

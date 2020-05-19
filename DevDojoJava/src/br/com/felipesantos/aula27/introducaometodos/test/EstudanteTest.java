@@ -23,6 +23,7 @@ public class EstudanteTest {
 		
 		estudante.imprimeDados();
 		estudante.tirarMedia();
+		System.out.println("Estudante aprovado?: " + estudante.isAprovado());
 
 	}
 

@@ -6,16 +6,19 @@ public class Funcionario {
 	private double salario;
 	private String rg;
 	
-	public void init (String nome, String cpf, double salario) {
+	//1º método executado é o construtor
+	public Funcionario(String nome, String cpf, double salario, String rg) {
 		this.nome = nome;
 		this.cpf = cpf;
-		this.salario = salario;		
+		this.salario = salario;
+		this.rg = rg; 
 	}
 	
-	public void init (String nome, String cpf, double salario, String rg) {
-		init(nome, cpf, salario); // pra não repetir, chama o init com 3 args
-		this.rg = rg; // e add rg
+	public Funcionario() {
+		
 	}
+	
+	
 	
 	public void imprimeDados() {
 		System.out.println(this.nome);

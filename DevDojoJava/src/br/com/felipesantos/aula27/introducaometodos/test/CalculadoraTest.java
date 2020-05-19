@@ -18,7 +18,7 @@ public class CalculadoraTest {
 		System.out.println(resultadoDivisao); // 0
 		System.out.println("...Continuando a execução ");
 
-		int[] numeros = {10, 2, 3, 4, 5};
+		int[] numeros = {10, 2, 3, 4, 5};// aula 34
 		calculadora.somaArray(numeros);
 		
 		calculadora.somaVarArgs("teste", 10, 2, 3, 4, 5);

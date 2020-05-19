@@ -10,8 +10,6 @@ public class FuncionarioTest {
 		
 		funcionario1.imprimeDados();
 		funcionario2.imprimeDados();
-		
-
 	}
 
 }

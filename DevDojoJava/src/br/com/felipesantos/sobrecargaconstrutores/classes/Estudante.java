@@ -14,16 +14,13 @@ public class Estudante {
 	}
 	
 	public Estudante(String matricula, String nome, double[] notas, String dataMatricula) {
-		this();// chma o contrutor sem args
-		this.matricula = matricula;
-		this.nome = nome;
-		this.notas = notas;
+		this(matricula, nome, notas);// chama o contrutor com 3 args
 		this.dataMatricula = dataMatricula;
 	}
 	
 	
 	public Estudante() {
-		System.out.println("Contrutor default");
+		
 	}
 	
 	public void imprimeDados() {
@@ -32,6 +29,7 @@ public class Estudante {
 		for (double nota : notas) {
 			System.out.println("Notas: " + nota);
 		}
+		System.out.println("Data da Matricula: " + this.dataMatricula);
 	}
 	
 	public String getMatricula() {

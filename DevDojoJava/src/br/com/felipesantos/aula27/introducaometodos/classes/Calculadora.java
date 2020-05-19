@@ -37,5 +37,21 @@ public class Calculadora {
 		System.out.println("num2: " + num2);
 	}
 	
+	public void somaArray(int [] numeros) {
+		int soma = 0;
+		
+		for (int num : numeros) {
+			soma += num;		
+		}
+		System.out.println(soma);		
+	}
 	
+	public void somaVarArgs(String nome, int... numeros) {// o parametro do varArgs tem que ser o ultimo
+		int soma = 0;
+		
+		for (int num : numeros) {
+			soma += num;		
+		}
+		System.out.println(soma);
+	}
 }

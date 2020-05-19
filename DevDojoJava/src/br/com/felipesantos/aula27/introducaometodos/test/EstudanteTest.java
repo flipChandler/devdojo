@@ -1,6 +1,5 @@
 package br.com.felipesantos.aula27.introducaometodos.test;
 
-import java.util.Arrays;
 import java.util.Random;
 
 import br.com.felipesantos.aula27.introducaometodos.classes.Estudante;

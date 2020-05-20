@@ -3,7 +3,7 @@ package br.com.felipesantos.modificadorestatico.classes;
 public class Carro {
 	private String nome;
 	private double velocidadeMaxima;
-	public static double velocidadeLimite = 240;
+	private static double velocidadeLimite = 240;
 	
 	// atributos static pertencem à classe e não ao objeto
 	
@@ -11,7 +11,7 @@ public class Carro {
 		System.out.println("--------------------");
 		System.out.println("Nome: " + this.nome);
 		System.out.println("Velocidade Máxima: " + this.velocidadeMaxima);
-		System.out.println("Veoclidade Limite:" + velocidadeLimite);
+		System.out.println("Velocidade Limite:" + velocidadeLimite);
 	}
 	
 	
@@ -24,6 +24,16 @@ public class Carro {
 	public Carro() {
 		
 	}
+	
+	public static void setVelocidadeLimite(double velocidadeLimite) {
+		Carro.velocidadeLimite = velocidadeLimite;
+	}
+	
+	public static double getVelocidadeLimite() {
+		return velocidadeLimite;
+	}
+	
+	
 	
 	
 	public String getNome() {

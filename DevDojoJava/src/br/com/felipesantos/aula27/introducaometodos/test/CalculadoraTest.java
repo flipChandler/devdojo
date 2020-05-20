@@ -5,23 +5,21 @@ import br.com.felipesantos.aula27.introducaometodos.classes.Calculadora;
 public class CalculadoraTest {
 
 	public static void main(String[] args) {
-		Calculadora calculadora = new Calculadora();
+		Calculadora.somaDoisNumeros(); //10
+		Calculadora.subtraiDoisNumeros();// 13
+		Calculadora.multiplicaDoisNumeros(5, 10); // 50
+		System.out.println(Calculadora.divideDoisNumeros(140.0, 2)); // 70
 		
-		calculadora.somaDoisNumeros(); //10
-		calculadora.subtraiDoisNumeros();// 13
-		calculadora.multiplicaDoisNumeros(5, 10); // 50
-		System.out.println(calculadora.divideDoisNumeros(140.0, 2)); // 70
+		double resultadoDivisao = Calculadora.divideDoisNumeros(200.70, 0);
 		
-		double resultadoDivisao = calculadora.divideDoisNumeros(200.70, 0);
-		
-		calculadora.imprimeDoisNumerosDivididos(10, 5); // infinity
+		Calculadora.imprimeDoisNumerosDivididos(10, 5); // infinity
 		System.out.println(resultadoDivisao); // 0
 		System.out.println("...Continuando a execução ");
 
 		int[] numeros = {10, 2, 3, 4, 5};// aula 34
-		calculadora.somaArray(numeros);
+		Calculadora.somaArray(numeros);
 		
-		calculadora.somaVarArgs("teste", 10, 2, 3, 4, 5);
+		Calculadora.somaVarArgs("teste", 10, 2, 3, 4, 5);
 	}
 
 }

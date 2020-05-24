@@ -1,4 +1,4 @@
-package br.com.felipesantos.javacore.associacao;
+package br.com.felipesantos.javacore.associacao.siabreutec;
 
 public class Endereco {
 	private String rua;

@@ -4,6 +4,6 @@ public class Endereco {
 	private String rua;
 	private String bairro;
 	private String estado;
-	//Endereco tem muitas pessoas
+	//Endereco não tendo pessoas, posso usar essa classe em outro sistema | não está acoplada
 	
 }

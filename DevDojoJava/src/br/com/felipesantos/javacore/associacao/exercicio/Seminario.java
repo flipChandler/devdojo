@@ -6,6 +6,25 @@ public class Seminario {
 	private Professor professor;
 	private Local local;	
 	
+	private Seminario() {
+		
+	}
+	
+	public Seminario(String titulo) {
+		super();
+		this.titulo = titulo;		
+	}
+	
+	public void print() {
+		System.out.println("-----------RELATORIO DE SEMINÁRIOS---------------");
+		System.out.println("Titulo: " + this.titulo);
+		System.out.println("Professor palestrante: " + this.professor.getNome());
+		System.out.println("Local: " + this.local.getRua() + " Bairro: " + this.local.getBairro());
+		System.out.println("----Alunos participantes----");
+		for(Aluno aluno : this.alunos) {
+			System.out.println(aluno.getNome());
+		}
+	}
 	
 	public String getTitulo() {
 		return titulo;

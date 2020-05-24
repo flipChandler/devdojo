@@ -4,6 +4,29 @@ public class Aluno {
 	private String nome;
 	private int idade;	
 	private Seminario seminario;
+	
+	public Aluno() {
+		
+	}
+	
+	public Aluno(String nome, int idade) {		
+		this.nome = nome;
+		this.idade = idade;
+	}
+	
+	public void print() {
+		System.out.println("-----------RELATORIO DE ALUNOS------------------------");
+		System.out.println("Nome: " + this.nome);
+		System.out.println("Idade: " + this.idade);
+		
+		if(this.seminario != null) {
+			System.out.println("Seminário inscrito: " + this.seminario.getTitulo());
+		}else {
+			System.out.println("Aluno não está inscrito em nenhum seminário");
+		}
+			
+	}
+	
 	public String getNome() {
 		return nome;
 	}

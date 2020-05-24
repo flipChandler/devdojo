@@ -1,4 +1,4 @@
-package br.com.felipesantos.javacore.modificadorestatico.classes;
+ package br.com.felipesantos.javacore.modificadorestatico.classes;
 
 public class Cliente {
 	/* 0 - Bloco de inicalizacao estático é executado quando a JVM carrega a classe (é executado apenas uma vez)

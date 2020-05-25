@@ -2,6 +2,10 @@ package br.com.felipesantos.javacore.heranca.classes;
 
 public class Funcionario extends Pessoa{ // FUNCIONARIO É-UMA PESSOA
 	private double salario;
+	
+	public Funcionario(String nome) {
+		super(nome);// construtor da superclasse
+	}
 
 	public void print() {
 		super.print();// método da superclasse Pessoa

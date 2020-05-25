@@ -1,9 +1,20 @@
 package br.com.felipesantos.javacore.heranca.classes;
 
 public class Pessoa {
+	// protected -> visibilidade: classes filhas ou do mesmo pacote
 	protected String nome;
 	protected String cpf;
 	protected Endereco endereco;
+	
+	public Pessoa (String nome) {
+		this.nome = nome;
+	}
+	
+	public Pessoa (String nome, String cpf) {
+		this.nome = nome;
+		this.cpf = cpf;
+	}
+
 	
 	public void print() {
 		System.out.println("Nome: " + this.nome);

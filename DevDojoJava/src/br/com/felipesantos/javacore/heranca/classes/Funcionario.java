@@ -6,6 +6,11 @@ public class Funcionario extends Pessoa{ // FUNCIONARIO É-UMA PESSOA
 	public void print() {
 		super.print();// método da superclasse Pessoa
 		System.out.println("Salario: " + this.salario);
+		imprimeReciboPagamento();
+	}
+	
+	public void imprimeReciboPagamento() {
+		System.out.println("Eu, " + super.nome + " recebi o pagamento de " + this.salario);
 	}
 	
 	public double getSalario() {

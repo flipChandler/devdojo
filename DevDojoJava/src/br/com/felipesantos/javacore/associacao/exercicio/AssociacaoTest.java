@@ -15,9 +15,9 @@ public class AssociacaoTest {
 		aluno.setSeminario(seminario);
 		aluno2.setSeminario(seminario);
 		
-		seminario.setProfessor(professor);
-		seminario.setLocal(local);
-		seminario.setAlunos(new Aluno[] {aluno, aluno2});
+		//seminario.setProfessor(professor);
+		//seminario.setLocal(local);
+		//seminario.setAlunos(new Aluno[] {aluno, aluno2});
 		
 		Seminario[] arraySeminario = new Seminario[2];
 		arraySeminario[0] = seminario;	

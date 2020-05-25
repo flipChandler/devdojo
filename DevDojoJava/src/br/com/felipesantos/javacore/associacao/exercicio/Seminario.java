@@ -30,7 +30,7 @@ public class Seminario {
 			System.out.println("Nenhum local cadastrado para esse seminário!");
 		}
 		
-		if(this.alunos != null && alunos.length != 0) {
+		if(this.alunos != null && alunos.length != 0) { //não null e o array não pode estar vazio NullPointerException e ArrayIndexOutOfBoundsException
 			System.out.println("----Alunos participantes----");
 			for(Aluno aluno : this.alunos) {
 				System.out.println(aluno.getNome());

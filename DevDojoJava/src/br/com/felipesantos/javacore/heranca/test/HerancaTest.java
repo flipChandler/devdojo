@@ -7,24 +7,22 @@ import br.com.felipesantos.javacore.heranca.classes.Pessoa;
 public class HerancaTest {
 
 	public static void main(String[] args) {
-		Pessoa pessoa = new Pessoa("Regina");
+		//Pessoa pessoa = new Pessoa("Regina");
 		Endereco endereco = new Endereco();
 		
-		pessoa.setNome("Regina");
-		pessoa.setCpf("123456789");
+		//pessoa.setCpf("123456789");
 		endereco.setRua("Rua João das Couves");
 		endereco.setBairro("Parque Monjolo");
-		pessoa.setEndereco(endereco);		
-		pessoa.print();
+		//pessoa.setEndereco(endereco);		
+		//pessoa.print();
 		
 		System.out.println("-------------------");
 		
 		Funcionario funcionario = new Funcionario("Bruna");
-		funcionario.setNome("Bruna");
 		funcionario.setCpf("78963654");
 		funcionario.setEndereco(endereco);
 		funcionario.setSalario(4500);
-		funcionario.print();
+		//funcionario.print();
 		
 
 	}

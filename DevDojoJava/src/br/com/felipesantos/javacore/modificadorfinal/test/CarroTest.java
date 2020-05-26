@@ -8,9 +8,7 @@ public class CarroTest {
 		Carro carro = new Carro();
 		System.out.println(carro.getComprador());
 		carro.getComprador().setNome("Marcosa");
-		System.out.println(carro.getComprador());
-		
-		
+		System.out.println(carro.getComprador());	
 
 	}
 

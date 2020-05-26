@@ -9,8 +9,7 @@ public class PessoaTest {
 		pessoa.setNome("Joaquina na esquina");
 		pessoa.setIdade(300);
 		
-		System.out.println(pessoa);// o metodo toString que é invocado ao println
-		
+		System.out.println(pessoa);// o metodo toString que é invocado ao println		
 		
 	}
 

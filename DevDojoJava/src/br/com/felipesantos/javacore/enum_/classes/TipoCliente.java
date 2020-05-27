@@ -12,6 +12,12 @@ public enum TipoCliente {
 		this.nome = nome;
 	}
 	
+	//constant specific class body
+	
+	public String getId() {
+		return "A";
+	}
+	
 	public int getTipo() {
 		return this.tipo;
 	}

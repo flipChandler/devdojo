@@ -1,6 +1,5 @@
 package br.com.felipesantos.javacore.polimorfismo.test;
 
-import br.com.felipesantos.javacore.polimorfismo.classes.Funcionario;
 import br.com.felipesantos.javacore.polimorfismo.classes.Gerente;
 import br.com.felipesantos.javacore.polimorfismo.classes.RelatorioPagamento;
 import br.com.felipesantos.javacore.polimorfismo.classes.Vendedor;
@@ -17,12 +16,9 @@ public class PolimorfismoTest {
 		
 		relatorio.pagamentoGenerico(gerente);
 		System.out.println("-----------------");
-		relatorio.pagamentoGenerico(vendedor);
+		relatorio.pagamentoGenerico(vendedor);		
 		
 		
-		Funcionario funcionario = gerente;
-		System.out.println("------------------");
-		System.out.println(funcionario.getSalario());
 	}
 
 }

@@ -14,4 +14,13 @@ public class Vendedor extends Funcionario {
 		
 	}
 
+	public double getTotalVendas() {
+		return totalVendas;
+	}
+
+	public void setTotalVendas(double totalVendas) {
+		this.totalVendas = totalVendas;
+	}
+	
+
 }

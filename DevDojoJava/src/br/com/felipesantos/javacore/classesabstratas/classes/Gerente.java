@@ -14,5 +14,11 @@ public class Gerente extends Funcionario {
 		this.salario = this.salario * (1 + 0.20);
 		
 	}
+
+	@Override
+	public void imprime() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

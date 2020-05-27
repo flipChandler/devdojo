@@ -7,6 +7,10 @@ public class Vendedor extends Funcionario {
 		
 	}
 	
+	public Vendedor(String nome, String clt, double salario, double totalVendas) {
+		super(nome, clt, salario);
+		this.totalVendas = totalVendas;
+	}
 	
 	
 	@Override
@@ -15,14 +19,11 @@ public class Vendedor extends Funcionario {
 		
 	}
 
-	
-
-	public Vendedor(String nome, String clt, double salario, double totalVendas) {
-		super(nome, clt, salario);
-		this.totalVendas = totalVendas;
+	@Override
+	public void imprime() {
+		// TODO Auto-generated method stub
+		
 	}
-
-
 
 	public double getTotalVendas() {
 		return totalVendas;
@@ -31,6 +32,9 @@ public class Vendedor extends Funcionario {
 	public void setTotalVendas(double totalVendas) {
 		this.totalVendas = totalVendas;
 	}
+
+
+
 
 
 

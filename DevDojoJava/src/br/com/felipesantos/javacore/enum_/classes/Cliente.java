@@ -1,15 +1,19 @@
 package br.com.felipesantos.javacore.enum_.classes;
 
 public class Cliente {
+	public enum TipoPagamento{
+		A_VISTA, A_PRAZO
+	}
+	
 	private String nome;	
-	private TipoCliente tipo;
+	private TipoCliente tipoCliente;
+	private TipoPagamento tipoPagamento;	
 	
-	
-	
-	public Cliente(String nome, TipoCliente tipo) {
+	public Cliente(String nome, TipoCliente tipoCliente, TipoPagamento tipoPagamento) {
 		super();
 		this.nome = nome;
-		this.tipo = tipo;
+		this.tipoCliente = tipoCliente;
+		this.tipoPagamento = tipoPagamento;
 	}
 	
 	public String getNome() {
@@ -18,21 +22,24 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public TipoCliente getTipo() {
-		return tipo;
+	public TipoCliente getTipoCliente() {
+		return tipoCliente;
 	}
-	public void setTipo(TipoCliente tipo) {
-		this.tipo = tipo;
+	public void setTipoCliente(TipoCliente tipoCliente) {
+		this.tipoCliente = tipoCliente;
+	}	
+
+	public TipoPagamento getTipoPagamento() {
+		return tipoPagamento;
+	}
+
+	public void setTipoPagamento(TipoPagamento tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
 	}
 
 	@Override
 	public String toString() {
-		return "Nome=" + nome + ", tipo=" + tipo;
-	}
-	
-	
-	
-		
-	
+		return "Nome=" + nome + ", Tipo=" + tipoCliente.getNome() + ", Tipo Pagamento=" + tipoPagamento;
+	}	
 	
 }

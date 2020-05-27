@@ -2,7 +2,11 @@ package br.com.felipesantos.javacore.enum_.classes;
 
 public enum TipoCliente {
 	PESSOA_FISICA(1, "Pessoa Física"),
-	PESSOA_JURIDICA(2, "Pessoa Jurídica");
+	PESSOA_JURIDICA(2, "Pessoa Jurídica"){
+		public String getId() {
+			return "B";
+		} // getId() de PJ
+	};
 	
 	private int tipo;
 	private String nome;
@@ -15,7 +19,7 @@ public enum TipoCliente {
 	//constant specific class body
 	
 	public String getId() {
-		return "A";
+		return "A"; // id de PF
 	}
 	
 	public int getTipo() {

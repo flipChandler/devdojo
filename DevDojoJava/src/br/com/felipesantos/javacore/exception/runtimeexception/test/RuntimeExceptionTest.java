@@ -13,7 +13,7 @@ public class RuntimeExceptionTest {
 //			int c = a / b;
 //			System.out.println(a); // by zero, um erro em tempo de execução | runtime error coloca um if
 //		}
-		
-		System.out.println(object.toString()); // nullPointerException 
+		int[] a = new int[2];
+		System.out.println(a[2]); // ArrayIndexOutOfBoundsException | acessar um indice que não existe 
 	}
 }

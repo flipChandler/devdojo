@@ -1,4 +1,4 @@
-package br.com.felipesantos.javacore.exception;
+package br.com.felipesantos.javacore.exception.error.test;
 
 public class ErrorTest {
 

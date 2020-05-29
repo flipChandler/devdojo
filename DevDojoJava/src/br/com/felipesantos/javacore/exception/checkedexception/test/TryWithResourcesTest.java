@@ -12,7 +12,7 @@ public class TryWithResourcesTest {
 		
 	}
 	
-	public static void lerArquivo() {
+	public static void lerArquivoJava6() {
 		Reader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader("text.txt"));
@@ -30,5 +30,17 @@ public class TryWithResourcesTest {
 			
 		}
 	}
-
+	
+	public static void lerArquivoJava7() throws IOException { // NÃO PRECISA DO CATCH
+		// classes instaciadas somente as que tem as interfaces closeable e autocloseable
+		try ( Reader reader = new BufferedReader(new FileReader("text.txt")) ){ 	
+		}
+	}
+	
+	public static void outroLerArquivoJava7() { 
+		try ( Reader reader = new BufferedReader(new FileReader("text.txt")) ){ 	
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

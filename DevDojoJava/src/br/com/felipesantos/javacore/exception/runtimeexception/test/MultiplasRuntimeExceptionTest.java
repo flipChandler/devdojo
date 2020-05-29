@@ -7,26 +7,17 @@ public class MultiplasRuntimeExceptionTest {
 
 	public static void main(String[] args) {
 		try {
-			throw new IllegalArgumentException();
-		} catch (ArrayIndexOutOfBoundsException e) {
+			throw new IndexOutOfBoundsException();
+		} catch (IllegalArgumentException | IndexOutOfBoundsException | ArithmeticException e) {// no Java 7, multi-catch separados pelo PIPE
 			System.out.println("dentro do ArrayIndexOutOfBoundsException");
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("dentro do IndexOutOfBoundsException");
-		} catch (IllegalArgumentException e) {
-			System.out.println("dentro do IllegalArgumentException");
-		} catch (ArithmeticException e) {
-			System.out.println("dentro do ArithmeticException");
-		} catch (RuntimeException e) {
-			System.out.println("dentro do RuntimeException");
-		}
+		} 
+		System.out.println("Fim do programa!");
 		// mais generico por ultimo | tds as exceptions acima descendem de RuntimeException
 		
 		
 		try {
 			talvezLanceException();
-		} catch (SQLException e) {// capture as duas 
-			// TODO: handle exception
-		}catch(FileNotFoundException e) {// capture as duas 
+		} catch (Exception e) { // lança a SQLException e FileNotException q já foram declaradas na assinatura do metodo 
 			
 		}
 		

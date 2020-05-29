@@ -6,14 +6,9 @@ import java.io.IOException;
 public class CheckedExceptionTest {
 
 	public static void main(String[] args) {
-		try {
-			criarArquivo();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		abrirArquivo();
 	}
-	
+
 	public static void criarArquivo() throws IOException {
 		File file = new File("Teste.txt");
 		try {
@@ -22,6 +17,21 @@ public class CheckedExceptionTest {
 		} catch (IOException e) {// exceção do tipo checked
 			e.printStackTrace();// apresenta a trilha da stack que deu problema
 			throw e;// relançou a IOException para quem está chamando o método
+		}
+	}
+
+	public static void abrirArquivo() {
+		File file = new File("Teste.txt");
+		try {
+			System.out.println("Arquivo criado? : " + file.createNewFile());
+			System.out.println("Abrindo um arquivo");
+			System.out.println("Executando a leitura do arquivo");
+			throw new Exception();
+		} catch (Exception e) {
+			System.out.println("Dentro do catch");
+			e.printStackTrace();
+		} finally {
+			System.out.println("Fechando o arquivo");
 		}
 	}
 

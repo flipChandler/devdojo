@@ -14,7 +14,14 @@ public class WrappersTest {
 		char charPrimitivo = 'A';
 		boolean booleanPrimitivo = true;
 		
-		
+		Byte byteWrapper = 127;
+		Short shortWrapper = 1;
+		Integer integerWrapper = 1;
+		Long longWrapper = 10L;
+		Float floatWrapper = 10F;
+		Double doubleWrapper = 10D;
+		Character characterWrapper = 'A';
+		Boolean booleanWrapper = true;
 
 	}
 

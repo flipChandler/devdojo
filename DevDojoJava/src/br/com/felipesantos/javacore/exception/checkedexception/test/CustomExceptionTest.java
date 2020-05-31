@@ -19,7 +19,7 @@ public class CustomExceptionTest {
 		String usuarioDigitado = "Goku";
 		String senhaDigitada = "123";
 		
-		if(!usuarioBancoDeDados.equals(usuarioDigitado)  || !senhaBancoDeDados.equals(senhaDigitada)) {
+		if(!usuarioBancoDeDados.equals(usuarioDigitado)  || !senhaBancoDeDados.equals(senhaDigitada)) { // LEI DE MORGAN
 			throw new LoginInvalidoException();				
 		}else {
 			System.out.println("Logado!");

@@ -19,7 +19,10 @@ public class StringBuilderTest {
 		System.out.println(sb3.insert(4,"####")); // 0123####456789
 		
 		StringBuilder sb4 = new StringBuilder(16);
-		System.out.println(sb4.append("def").insert(3, "ghi").reverse().delete(2, 4));// ihd
+		System.out.println(sb4.append("def").insert(3, "ghi").reverse().delete(2, 4));// ihed
+		
+		//SAO OS PRINCIPAIS METODOS DO STRINGBUFFER E STRINGBUILDER
+		
 		
 		
 		

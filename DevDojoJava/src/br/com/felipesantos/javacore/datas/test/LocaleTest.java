@@ -20,13 +20,16 @@ public class LocaleTest {
 		DateFormat df3 = DateFormat.getDateInstance(DateFormat.FULL, localeIndia );
 		DateFormat df4 = DateFormat.getDateInstance(DateFormat.FULL, localeJapao );
 
-		System.out.println(df.format("Italia " + calendar.getTime()));// mercoledì 23 dicembre 2015
-		System.out.println(df2.format("Suiça " + calendar.getTime()));// mercoledì, 23 dicembre 2015
-		System.out.println(df3.format("India " + calendar.getTime()));// ??????, 23 ?????? 2015
-		System.out.println(df4.format("Japão " + calendar.getTime()));// 2015?12?23????
+		System.out.println("Italia " + df.format(calendar.getTime()));// Italia mercoledì 23 dicembre 201
+		System.out.println("Suiça " + df2.format(calendar.getTime()));// Suiça mercoledì, 23 dicembre 2015
+		System.out.println("India " + df3.format( calendar.getTime()));// India ??????, 23 ?????? 2015
+		System.out.println("Japão " + df4.format(calendar.getTime()));// Japão 2015 Dec 23, Wed
 		
-		System.out.println(localeItaly.getDisplayCountry()); 
+		System.out.println(localeItaly.getDisplayLanguage());// italiano
+		System.out.println(localeJapao.getDisplayLanguage());// japonês
+		System.out.println(localeIndia.getDisplayLanguage()); // hindi
 		
+				
 	}
 
 }

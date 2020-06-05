@@ -7,8 +7,8 @@ public class ExpressoesRegularesTest {
 
 	public static void main(String[] args) {
 		// METACARACTERES
-		// \w caracteres de palavras - a-z, A-Z, _ e digitos 
-		String regex = "\\w"; // quero procurar
+		// \W tudo o que não for caracteres de palavras 
+		String regex = "\\W"; // quero procurar
 		String texto = "h\nab1 235 48gfrah\rg99_"; // onde fará a procura 
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(texto);
@@ -19,7 +19,7 @@ public class ExpressoesRegularesTest {
 		System.out.println("posicoes encontradas");
 		
 		while(matcher.find()) {
-			//0 2 3 4 6 7 8 10 11 12 13 14 15 16 18 19 20 21  
+			//1 5 9 17  
 			System.out.print(matcher.start() + " "); 
 		}
 		

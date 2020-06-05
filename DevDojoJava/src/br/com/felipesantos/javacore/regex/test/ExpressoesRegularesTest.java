@@ -19,8 +19,10 @@ public class ExpressoesRegularesTest {
 		System.out.println("posicoes encontradas");
 		
 		while(matcher.find()) {
-			//9 16 22   
-			System.out.print(matcher.start() + " "); 
+//			9 0xF
+//			16 0x1
+//			22 0x1
+			System.out.println(matcher.start() + " " +matcher.group()); 
 		}
 		
 	}

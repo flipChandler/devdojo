@@ -8,8 +8,8 @@ public class ExpressoesRegularesTest {
 	public static void main(String[] args) {
 		// METACARACTERES
 		// [] procure esse intervalo de caracteres
-		String regex = "[a-eA-B]"; // de a até e | de A até B
-		String texto = "h\nab1 235 48gAfrah\rBg99_"; // onde fará a procura 
+		String regex = "0[xX][0-9a-fA-F]"; // intervalo de hexadecimais
+		String texto = "12 0x 0X 0xFFAB 0x10G 0x1"; // onde fará a procura 
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(texto);
 		
@@ -19,7 +19,7 @@ public class ExpressoesRegularesTest {
 		System.out.println("posicoes encontradas");
 		
 		while(matcher.find()) {
-			//2 3 13 16 19  
+			//9 16 22   
 			System.out.print(matcher.start() + " "); 
 		}
 		

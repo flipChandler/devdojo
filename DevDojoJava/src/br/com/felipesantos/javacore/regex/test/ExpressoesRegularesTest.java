@@ -6,9 +6,10 @@ import java.util.regex.Pattern;
 public class ExpressoesRegularesTest {
 
 	public static void main(String[] args) {
-		//CLASSES PATTERN E MATCHER
-		String regex = "mosca"; // quero procurar
-		String texto = "tinha uma mosca no meu prato"; // onde fará a procura 
+		// METACARACTERES
+		// \d todos os digitos
+		String regex = "\\d"; // quero procurar
+		String texto = "hab123548gfrahg99"; // onde fará a procura 
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(texto);
 		
@@ -18,8 +19,8 @@ public class ExpressoesRegularesTest {
 		System.out.println("posicoes encontradas");
 		
 		while(matcher.find()) {
-			//indice onde começa e termina o padrão (mosca)
-			System.out.println(matcher.start() + " e " + matcher.end()); // 10 e 15
+			//3 4 5 6 7 8 15 16 
+			System.out.print(matcher.start() + " "); 
 		}
 		
 	}

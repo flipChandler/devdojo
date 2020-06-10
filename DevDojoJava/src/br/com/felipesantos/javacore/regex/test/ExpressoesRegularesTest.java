@@ -17,8 +17,12 @@ public class ExpressoesRegularesTest {
 		// $ -> encontrar algo que esteja no fim da linha
 		// o(v|c)o => procure algo que tenha 'o', seguido de 'v' ou 'c' e seguinte '0'
 		// maca(rr|c) ão = macarrão ou macacão
-		String regex = "0[xX]([0-9a-fA-F])+(\\s|$)"; // pode repetir de uma ou vezes
-		String texto = "12 0x 0X 0xFFAB 0x10G 0x1"; // onde fará a procura
+		//. coringa - pode ser substituido por qlq caracter
+		//String regex = "0[xX]([0-9a-fA-F])+(\\s|$)"; // pode repetir de uma ou vezes
+		//String texto = "12 0x 0X 0xFFAB 0x10G 0x1"; // onde fará a procura
+		
+		String regex = "([a-zA-z0-9\\._-])+@([a-zA-Z])+(\\.([a-zA-Z])+)+"; // pode repetir de uma ou vezes
+		String texto = "fulano@hotmail.com, 102Abc@gmail.com, #@!abrao@mail, teste@gmail.com.co.br, teste@mail"; // onde fará a procura
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(texto);
 

@@ -22,7 +22,8 @@ public class ExpressoesRegularesTest {
 		//String texto = "12 0x 0X 0xFFAB 0x10G 0x1"; // onde fará a procura
 		
 		String regex = "([a-zA-z0-9\\._-])+@([a-zA-Z])+(\\.([a-zA-Z])+)+"; // pode repetir de uma ou vezes
-		String texto = "fulano@hotmail.com, 102Abc@gmail.com, #@!abrao@mail, teste@gmail.com.co.br, teste@mail"; // onde fará a procura
+		String texto = "fulano@hotmail.com, 102Abc@gmail.com, #@!abrao@mail.br, teste@gmail.com.co.br, teste@mail"; // onde fará a procura
+		System.out.println("Email valido? " + "#@!abrao@mail.br".matches(regex)); // false
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(texto);
 

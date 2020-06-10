@@ -18,11 +18,12 @@ public class ExpressoesRegularesTest {
 		// o(v|c)o => procure algo que tenha 'o', seguido de 'v' ou 'c' e seguinte '0'
 		// maca(rr|c) ão = macarrão ou macacão
 		//. coringa - pode ser substituido por qlq caracter
+		// ^ negação
 		//String regex = "0[xX]([0-9a-fA-F])+(\\s|$)"; // pode repetir de uma ou vezes
 		//String texto = "12 0x 0X 0xFFAB 0x10G 0x1"; // onde fará a procura
 		
-		String regex = "\\d{2}/\\d{2}/\\d{2,4}"; // procurar datas nesse padrao dd/MM/yyyy ou yy
-		String texto = "05/10/2010 05/05/2015 1/1/01 01/05/95"; //  onde fará a procura
+		String regex = "proj([^,])*"; // procurar proj & não-virgula & varias vezes
+		String texto = "proj1.bkp, proj1.java, proj1.class, proj1final.java, proj2.java, proj2.bkp, texto, foto, diagrama"; //  onde fará a procura
 		System.out.println("Email valido? " + "#@!abrao@mail.br".matches(regex)); // false
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(texto);

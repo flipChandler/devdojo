@@ -21,7 +21,7 @@ public class ExpressoesRegularesTest {
 		//String regex = "0[xX]([0-9a-fA-F])+(\\s|$)"; // pode repetir de uma ou vezes
 		//String texto = "12 0x 0X 0xFFAB 0x10G 0x1"; // onde fará a procura
 		
-		String regex = "\\d\\d/\\d\\d/\\d\\d\\d\\d"; // procurar datas nesse padrao dd/MM/yyyy
+		String regex = "\\d{2}/\\d{2}/\\d{2,4}"; // procurar datas nesse padrao dd/MM/yyyy ou yy
 		String texto = "05/10/2010 05/05/2015 1/1/01 01/05/95"; //  onde fará a procura
 		System.out.println("Email valido? " + "#@!abrao@mail.br".matches(regex)); // false
 		Pattern pattern = Pattern.compile(regex);

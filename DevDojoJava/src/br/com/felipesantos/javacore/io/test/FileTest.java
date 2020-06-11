@@ -15,8 +15,11 @@ public class FileTest {
 	public static void main(String[] args) {
 		File file = new File("arquivo.text");
 		try {
-			boolean newFile = file.createNewFile();
-			System.out.println(newFile);
+			System.out.println(file.createNewFile());
+			boolean exists = file.exists();
+			if(exists) {
+				System.out.println("Deletado? " + file.delete());
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

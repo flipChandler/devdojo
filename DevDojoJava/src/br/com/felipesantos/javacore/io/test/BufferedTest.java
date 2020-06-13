@@ -1,5 +1,6 @@
 package br.com.felipesantos.javacore.io.test;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
@@ -17,18 +18,19 @@ public class BufferedTest {
 			bufferedWriter.write("Escrevendo uma mensagem no arquivo");
 			bufferedWriter.newLine();
 			bufferedWriter.write("E pulando uma linha");
-			bufferedWriter.flush();
+			bufferedWriter.flush(); // usado somente para a escrita
 			bufferedWriter.close();
 			
 			FileReader fileReader = new FileReader(file);
-			char[] in = new char[500];
-			int size = fileReader.read(in);
-			System.out.println("Tamanho: " + size);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			
-			for(char texto : in) {
-				System.out.print(texto);
+			String texto = null;
+			
+			while((texto = bufferedReader.readLine()) != null) {
+				System.out.println(texto);
 			}
-			fileReader.close();
+			
+			bufferedReader.close();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}

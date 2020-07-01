@@ -1,6 +1,7 @@
 package br.com.felipesantos.javacore.colecoes.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,6 +12,8 @@ public class SortProdutoTest {
 
 	public static void main(String[] args) {
 		List<Produto> produtos = new ArrayList<>();
+		Produto[] produtoArray = new Produto[4]; 
+		
 		Produto produto1 = new Produto("123", "Celular", 2000);
 		Produto produto2 = new Produto("321", "Picanha", 26.4);
 		Produto produto3 = new Produto("079", "Teclado", 1000);
@@ -22,7 +25,21 @@ public class SortProdutoTest {
 		produtos.add(produto4);
 		
 		Collections.sort(produtos, new ProdutoNomeComparator());// faz a ordenação de produto pela classe ProdutoNomeComparator
-		produtos.forEach(System.out::println);
+		produtos.forEach(System.out::println); // forEach só para List<>
+		
+		System.out.println("-----------------------------");
+		
+		produtoArray[0] = produto1;
+		produtoArray[1] = produto2;
+		produtoArray[2] = produto3;
+		produtoArray[3] = produto4;
+		
+		//ordenou o produtoArray pelo serialNumber
+		Arrays.sort(produtoArray);
+		
+		Arrays.stream(produtoArray)
+				.forEach(produto -> System.out.println(produto));		
+		
 	}
 
 }

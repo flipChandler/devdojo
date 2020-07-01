@@ -36,11 +36,9 @@ public class ListTest {
 		
 		nomes.forEach(System.out::println); 
 		
+		// nomes.clear(); serve pra limpar a lista
 		
-		
-		
-		
-		
+		nomes.forEach(System.out::println); 
 	}
 
 }

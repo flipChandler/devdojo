@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import br.com.felipesantos.javacore.colecoes.classes.Produto;
+import br.com.felipesantos.javacore.colecoes.classes.ProdutoNomeComparator;
 
 public class SortProdutoTest {
 
@@ -20,7 +21,7 @@ public class SortProdutoTest {
 		produtos.add(produto3);
 		produtos.add(produto4);
 		
-		Collections.sort(produtos); // ordena a lista pelo serialNumber da classe Produto
+		Collections.sort(produtos, new ProdutoNomeComparator());// faz a ordenação de produto pela classe ProdutoNomeComparator
 		produtos.forEach(System.out::println);
 	}
 

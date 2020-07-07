@@ -29,7 +29,7 @@ public class ConversaoListasEmArraysTest {
 		numerosArray2[3] = 9;
 		
 		// numeros2 (lista) recebe os valores de numerosArray2 | os 2 elementos estão vinculados, o que add em lista, add no array (tem limite de tamanho)
-		// 
+	
 		List<Integer> numeros2 = Arrays.asList(numerosArray2);		
 		List<Integer> numeros3 = new ArrayList<>();
 		numeros3.addAll(Arrays.asList(numerosArray2));// numeros3 (lista) add numerosArray2 sem vinculo

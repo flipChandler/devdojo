@@ -32,7 +32,7 @@ public class TreeSetTest {
 		
 				
 		//printa cada produto em ordem crescente de serialNumber
-		for (Produto produto : produtoNavigableSet) {
+		for (Produto produto : produtoNavigableSet.descendingSet()) {
 			System.out.println(produto);
 		}	
 		

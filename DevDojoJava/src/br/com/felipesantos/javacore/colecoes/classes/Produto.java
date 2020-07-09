@@ -94,9 +94,6 @@ public class Produto implements Comparable<Produto> {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
-	}
-
-	
-	
+	}	
 
 }

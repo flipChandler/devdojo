@@ -6,7 +6,7 @@ import java.util.List;
 import br.com.felipesantos.javacore.generics.classes.Carro;
 import br.com.felipesantos.javacore.generics.classes.Computador;
 
-public class ClasseGenericsTest {
+public class ClasseNaoGenericsTest {
 
 	public static void main(String[] args) {
 		CarroAlugavel carroAlugavel = new CarroAlugavel();

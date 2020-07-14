@@ -57,3 +57,32 @@ class ObjetosAlugaveis<T> {
 	
 }
 
+
+class DoisAtributos<T, X> {
+	T um;
+	X dois;
+	
+	public DoisAtributos(T um, X dois) {
+		this.um = um;
+		this.dois = dois;
+	}
+
+	public T getUm() {
+		return um;
+	}
+
+	public void setUm(T um) {
+		this.um = um;
+	}
+
+	public X getDois() {
+		return dois;
+	}
+
+	public void setDois(X dois) {
+		this.dois = dois;
+	}
+	
+	
+}
+

@@ -16,6 +16,12 @@ public class Comprador {
 		this.nome = nome;
 	}
 	
+	public Comprador(String cpf, String nome) {
+		this.cpf = cpf;
+		this.nome = nome;
+	}
+	
+	
 	public Integer getId() {
 		return id;
 	}

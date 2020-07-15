@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.felipesantos.javacore.jdbc.classes.Comprador;
 import br.com.felipesantos.javacore.jdbc.conn.ConnectionFactory;
 
 public class CompradorDB {
 	
-	public void save() {
-		String sql = "INSERT INTO comprador (`cpf`, `nome`) VALUES ('321.654.987-00', 'Jason Momoa')";
+	public void save(Comprador comprador) {
+		String sql = "INSERT INTO comprador (`cpf`, `nome`) VALUES ('" + comprador.getCpf() + "', '" + comprador.getNome() +"')";
 		Connection connection = ConnectionFactory.getConnection();
 		
 		try {

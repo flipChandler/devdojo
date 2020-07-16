@@ -1,12 +1,20 @@
 package br.com.felipesantos.javacore.jdbc.test;
 
+import java.util.List;
+
 import br.com.felipesantos.javacore.jdbc.classes.Comprador;
 import br.com.felipesantos.javacore.jdbc.db.CompradorDB;
 
 public class TesteConexao {
 
 	public static void main(String[] args) {
-		atualizar();
+		List<Comprador> listaComprador = selecionarTudo();
+		listaComprador.forEach(lista -> System.out.println(lista));
+		
+		List<Comprador> listaComprador2 = buscarPorNome("Baldini");
+		System.out.println(listaComprador2);
+		
+		
 	}
 	
 	public static void inserir() {
@@ -23,6 +31,14 @@ public class TesteConexao {
 	public static void atualizar() {
 		Comprador comprador = new Comprador(6,"000.000.000-00", "Mariana Baldini" );
 		CompradorDB.update(comprador);
+	}
+	
+	public static List<Comprador> selecionarTudo() {
+		return CompradorDB.selectAll();
+	}
+
+	public static List<Comprador> buscarPorNome(String nome) {
+		return CompradorDB.findByName(nome);
 	}
 
 }

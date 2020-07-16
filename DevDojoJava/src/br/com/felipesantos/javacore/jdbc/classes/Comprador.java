@@ -67,6 +67,12 @@ public class Comprador {
 			return false;
 		return true;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Comprador [id=" + id + ", cpf=" + cpf + ", nome=" + nome + "]";
+	}
 	
 	
 }

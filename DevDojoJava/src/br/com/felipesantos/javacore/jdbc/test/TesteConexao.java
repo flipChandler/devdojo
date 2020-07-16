@@ -8,12 +8,13 @@ import br.com.felipesantos.javacore.jdbc.db.CompradorDB;
 public class TesteConexao {
 
 	public static void main(String[] args) {
-		List<Comprador> listaComprador = selecionarTudo();
-		listaComprador.forEach(lista -> System.out.println(lista));
+//		List<Comprador> listaComprador = selecionarTudo();
+//		listaComprador.forEach(lista -> System.out.println(lista));
+//		
+//		List<Comprador> listaComprador2 = buscarPorNome("Baldini");
+//		System.out.println(listaComprador2);
 		
-		List<Comprador> listaComprador2 = buscarPorNome("Baldini");
-		System.out.println(listaComprador2);
-		
+		CompradorDB.selectMetadata();
 		
 	}
 	

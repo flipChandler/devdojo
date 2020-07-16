@@ -2,6 +2,7 @@ package br.com.felipesantos.javacore.jdbc.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -101,6 +102,29 @@ public class CompradorDB {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static void selectMetadata() {
+		String sql = "SELECT * FROM comprador";
+		Connection connection = ConnectionFactory.getConnection();
+		try {
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			ResultSetMetaData rsmd = rs.getMetaData();
+			
+			rs.next();
+			int qtdeColunas = rsmd.getColumnCount();
+			System.out.println("Quantidade colunas: " + qtdeColunas);
+			for (int i = 1; i <= qtdeColunas; i++) {
+				System.out.println("Tabela: " + rsmd.getTableName(i));
+				System.out.println("Nome coluna: " + rsmd.getColumnName(i));
+				System.out.println("Tamanho coluna: " + rsmd.getColumnDisplaySize(i));
+			}
+			
+			ConnectionFactory.closeConnection(connection, stmt, rs);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
 

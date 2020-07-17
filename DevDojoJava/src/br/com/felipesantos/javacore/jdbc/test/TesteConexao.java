@@ -14,9 +14,11 @@ public class TesteConexao {
 //		List<Comprador> listaComprador2 = buscarPorNome("Baldini");
 //		System.out.println(listaComprador2);
 		
-		CompradorDB.checkDriverStatus();
+		//CompradorDB.checkDriverStatus();
 		// suporta TYPE_SCROLL_INSENSITIVE -> Driver do MySQL
 		// e também suporta CONCUR_UPDATABLE
+		
+		CompradorDB.testTypeScrollAll();
 		
 	}
 	

@@ -156,6 +156,45 @@ public class CompradorDB {
 			e.printStackTrace();
 		}
 	}
+	
+	// exemplos do ResultSet na ultima, primeira linha, achar linha especifica da tabela. linha relativa a linha anterior
+	public static void testTypeScrollAll() {// acha a ultima linha da tabela comprador pelo select | se fosse order by nome, seria o ultimo nome
+		String sql = "SELECT id, nome, cpf FROM comprador";
+		Connection connection = ConnectionFactory.getConnection();
+		
+		try {
+			//sempre passar o parametro insensitive e readonly para não depender do driver do sgbd
+			Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			ResultSet rs = stmt.executeQuery(sql);
+			if (rs.last()) {// vai p/ ultima linha
+				System.out.println("Ultima linha " + new Comprador(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf")));
+				System.out.println("Número última linha: " + rs.getRow());
+			}
+			System.out.println("Retornou para a primeira linha " + rs.first());
+			System.out.println("Primeira linha: " + rs.getRow());
+			rs.absolute(4);
+			System.out.println("Linha 4 " + new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+			rs.relative(-1);// 3
+			System.out.println("Linha 3 " + new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+			System.out.println(rs.isLast());// false
+			System.out.println(rs.isAfterLast());// false
+			System.out.println(rs.isFirst());// false
+			
+			rs.afterLast(); // resultSet está depois da última linha agora
+			System.out.println("-------------------");
+			
+			//printa do ultimo para o primeiro
+			while(rs.previous()) {// enquanto tiver o anterior, printa | vai printa as linhas da tabela em ordem desc
+				System.out.println(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));				
+			}
+			
+			
+			
+			ConnectionFactory.closeConnection(connection, stmt, rs);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
 
 	//1) a string sql 

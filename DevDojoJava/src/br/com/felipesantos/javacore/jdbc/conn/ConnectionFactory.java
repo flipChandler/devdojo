@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetProvider;
+
 public class ConnectionFactory {
 	//interfaces do java.sql = Connection, Statement (alterações do banco), ResultSet(resultado de uma consulta)
 	// conexao através da classe DriverManager 
@@ -28,10 +31,43 @@ public class ConnectionFactory {
 		
 	}
 	
+	//conexão do JdbcRowSet
+	public static JdbcRowSet getRowSetConnection() {		
+		
+		String url="jdbc:mysql://localhost:3306/agencia?useSSL=false&useTimezone=true&serverTimezone=UTC";
+		String user="root";
+		String password="root";
+		
+		try{        
+			JdbcRowSet jdbcRowSet = RowSetProvider.newFactory().createJdbcRowSet();
+			jdbcRowSet.setUrl(url);
+			jdbcRowSet.setUsername(user);
+			jdbcRowSet.setPassword(password);
+			
+			return jdbcRowSet;
+		}          
+		catch(SQLException e) {                
+			System.out.println(e);
+			System.out.println("Erro de conexão");
+			return null;            
+		}		
+		
+	}
+	
 	public static void closeConnection(Connection connection) {
 		try {
 			if (connection != null) {
 				connection.close();
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void closeConnection(JdbcRowSet jrs) {
+		try {
+			if (jrs != null) {
+				jrs.close();
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();

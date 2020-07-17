@@ -24,7 +24,9 @@ public class TesteConexao {
 		//System.out.println(CompradorDB.findByNameSQLInjection("oao' or 'X'='X"));//traz todos os dados da tabela comprador
 		//System.out.println(CompradorDB.findByNamePreparedStatement("oa"));
 		//CompradorDB.updatePreparedStatement(new Comprador(1, "156.369.789-12", "Carmelita da Silva"));
-		System.out.println(CompradorDB.findByNameCallableStatement("oao"));
+		//System.out.println(CompradorDB.findByNameCallableStatement("oao"));
+		//System.out.println(CompradorDB.findByNameRowSet("oao"));
+		CompradorDB.updateRowSet(new Comprador(1, "251.963.154-00", "Wolverine"));
 		
 	}
 	

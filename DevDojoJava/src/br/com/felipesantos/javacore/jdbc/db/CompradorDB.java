@@ -11,7 +11,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.rowset.JdbcRowSet;
+
 import br.com.felipesantos.javacore.jdbc.classes.Comprador;
+import br.com.felipesantos.javacore.jdbc.classes.MyRowSetListener;
 import br.com.felipesantos.javacore.jdbc.conn.ConnectionFactory;
 
 public class CompradorDB {
@@ -96,6 +99,38 @@ public class CompradorDB {
 		}
 	}
 	
+	// ESSE METODO NÃO FUNCIONOU NO JAVA 11
+	public static void updateRowSet(Comprador comprador) {
+		if (comprador == null || comprador.getId() == null) {
+			System.out.println("Não foi possível atualizar o registro!");
+			return;
+		}		
+		
+		//String sql = "UPDATE comprador SET  `cpf`= ?, `nome`= ? WHERE `id`= ?" ;
+		String sql = "SELECT * FROM comprador WHERE `id`= ?" ;
+		JdbcRowSet jrs = ConnectionFactory.getRowSetConnection();
+		jrs.addRowSetListener(new MyRowSetListener());
+		
+		try {
+			jrs.setCommand(sql);
+			
+			//lança os parametros recuperados do objeto
+			//jrs.setString(1, comprador.getCpf());
+			//jrs.setString(2, comprador.getNome());
+			jrs.setInt(1, comprador.getId());			
+			
+			jrs.execute(); 
+			jrs.absolute(1);
+			jrs.updateString("nome", "Wolverine");
+			jrs.updateRow();
+			
+			ConnectionFactory.closeConnection(jrs);
+			System.out.println("Registro atualizado com sucesso");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static List<Comprador> selectAll() {
 		String sql = "SELECT id, nome, cpf FROM comprador";
 		Connection connection = ConnectionFactory.getConnection();
@@ -133,6 +168,7 @@ public class CompradorDB {
 		}
 		return null;
 	}
+
 	
 	// utiliza a stored procedure SP_GetCompradoresPorNome criada no banco de dados
 	public static List<Comprador> findByNameCallableStatement(String nome) {
@@ -187,6 +223,28 @@ public class CompradorDB {
 				compradorList.add(new Comprador(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf")));
 			}
 			ConnectionFactory.closeConnection(connection, ps, rs);
+			return compradorList;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	//RowSet não pode fazer o insert, delete e update pelo prepareStatement | somente pelo ResultSet
+	public static List<Comprador> findByNameRowSet(String nome) {
+		String sql = "SELECT id, nome, cpf FROM comprador where nome like ?";
+		JdbcRowSet jrs = ConnectionFactory.getRowSetConnection();
+		jrs.addRowSetListener(new MyRowSetListener());
+		List<Comprador> compradorList = new ArrayList<>();
+		
+		try {
+			jrs.setCommand(sql);
+			jrs.setString(1, "%" + nome + "%");
+			jrs.execute();
+			while(jrs.next()) {
+				compradorList.add(new Comprador(jrs.getInt("id"), jrs.getString("nome"), jrs.getString("cpf")));
+			}
+			ConnectionFactory.closeConnection(jrs);
 			return compradorList;
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -195,6 +195,70 @@ public class CompradorDB {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void updateNomesToLowerCase() {
+		String sql = "SELECT id, nome, cpf FROM comprador";
+		Connection connection = ConnectionFactory.getConnection();
+		
+		try {
+			Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE); // atualizar pelo ResultSet
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				rs.updateString("nome", rs.getString("nome").toLowerCase()); // atualize a coluna nome, com o q retornar de rs para LowerCase
+				rs.updateRow();// atualiza a linha no banco de dados
+			}
+			
+			rs.beforeFirst();// voltou pro inicio
+			while(rs.next()) {// mostrar se a linhas foram atualizadas
+				System.out.println(rs.getString("nome"));
+			}
+			ConnectionFactory.closeConnection(connection, stmt, rs);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// com Select e resultSet dá pra fazer updates
+	public static void testeUpdateNomesToUpperCase() {
+		String sql = "SELECT id, nome, cpf FROM comprador";
+		Connection connection = ConnectionFactory.getConnection();
+		
+		
+		try {
+			DatabaseMetaData dbmd = connection.getMetaData(); // pra não lançar a exceção que a feature de verificar CRUD pelo ResultSet é possivel
+			
+			Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			ResultSet rs = stmt.executeQuery(sql);
+			System.out.println(dbmd.updatesAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+			System.out.println(dbmd.insertsAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+			System.out.println(dbmd.deletesAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+			
+			if ( rs.next() ) {
+				rs.updateString("nome", rs.getString("nome").toUpperCase());
+				rs.updateRow();
+				//rs.cancelRowUpdate(); // rollback do update da linha
+//				if (rs.rowUpdated()) {
+//					System.out.println("Linha atualizada");
+//				}
+			}
+			
+			rs.absolute(2);// estou na linha 2
+			String nome = rs.getString("nome");
+			rs.moveToInsertRow();// copiou o nome para uma linha temporaria
+			rs.updateString("nome", nome.toUpperCase());//na temporaria, altere a coluna nome para uppercase
+			rs.updateString("cpf", "999.999.999-99"); // na temporaria, altere a coluna cpf com os 9's
+			rs.insertRow();// insira essa linha temporaria na tabela
+			rs.moveToCurrentRow();// vá para linha atual (absoluta)
+			System.out.println(rs.getString("nome") + ", linha: " + rs.getRow());
+			
+			rs.absolute(7);// foi pra linha 7
+			rs.deleteRow();// delete-a
+			
+			ConnectionFactory.closeConnection(connection, stmt, rs);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
 
 	//1) a string sql 

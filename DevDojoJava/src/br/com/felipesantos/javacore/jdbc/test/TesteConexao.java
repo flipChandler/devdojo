@@ -18,7 +18,9 @@ public class TesteConexao {
 		// suporta TYPE_SCROLL_INSENSITIVE -> Driver do MySQL
 		// e também suporta CONCUR_UPDATABLE
 		
-		CompradorDB.testTypeScrollAll();
+		//CompradorDB.testTypeScrollAll();
+		//CompradorDB.updateNomesToLowerCase();
+		CompradorDB.testeUpdateNomesToUpperCase();
 		
 	}
 	

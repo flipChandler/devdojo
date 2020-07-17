@@ -19,3 +19,15 @@ create table carro(
 
 select * from comprador;
 select * from carro;
+
+
+-- CRIAMOS UMA STORED PROCEDURE NA AULA 150 DE CALLABLE STATEMENTS
+
+DELIMITER //
+CREATE PROCEDURE SP_GetCompradoresPorNome(termo VARCHAR(100))
+	BEGIN
+		SELECT * FROM comprador WHERE nome LIKE termo;
+	END//
+DELIMITER ;
+
+CALL SP_GetCompradoresPorNome('%oao%'); 

@@ -1,5 +1,6 @@
 package br.com.felipesantos.javacore.jdbc.db;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
@@ -126,6 +127,27 @@ public class CompradorDB {
 				compradorList.add(new Comprador(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf")));
 			}
 			ConnectionFactory.closeConnection(connection, stmt, rs);
+			return compradorList;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	// utiliza a stored procedure SP_GetCompradoresPorNome criada no banco de dados
+	public static List<Comprador> findByNameCallableStatement(String nome) {
+		String sql = "CALL SP_GetCompradoresPorNome( ? )";
+		Connection connection = ConnectionFactory.getConnection();
+		List<Comprador> compradorList = new ArrayList<>();
+		
+		try {
+			CallableStatement cs = connection.prepareCall(sql);
+			cs.setString(1, "%" + nome + "%");
+			ResultSet rs = cs.executeQuery();
+			while(rs.next()) {
+				compradorList.add(new Comprador(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf")));
+			}
+			ConnectionFactory.closeConnection(connection, cs, rs);
 			return compradorList;
 		} catch (SQLException e) {
 			e.printStackTrace();

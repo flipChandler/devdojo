@@ -23,7 +23,8 @@ public class TesteConexao {
 		//CompradorDB.testeUpdateNomesToUpperCase();
 		//System.out.println(CompradorDB.findByNameSQLInjection("oao' or 'X'='X"));//traz todos os dados da tabela comprador
 		//System.out.println(CompradorDB.findByNamePreparedStatement("oa"));
-		CompradorDB.updatePreparedStatement(new Comprador(1, "156.369.789-12", "Carmelita da Silva"));
+		//CompradorDB.updatePreparedStatement(new Comprador(1, "156.369.789-12", "Carmelita da Silva"));
+		System.out.println(CompradorDB.findByNameCallableStatement("oao"));
 		
 	}
 	

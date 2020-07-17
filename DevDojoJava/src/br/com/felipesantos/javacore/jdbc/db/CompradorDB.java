@@ -2,6 +2,7 @@ package br.com.felipesantos.javacore.jdbc.db;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -67,6 +68,33 @@ public class CompradorDB {
 		}
 	}
 	
+	public static void updatePreparedStatement(Comprador comprador) {
+		if (comprador == null || comprador.getId() == null) {
+			System.out.println("Não foi possível atualizar o registro!");
+			return;
+		}		
+		
+		String sql = "UPDATE comprador SET  `cpf`= ?, `nome`= ? WHERE `id`= ?" ;
+		Connection connection = ConnectionFactory.getConnection();
+		
+		try {
+			// prepara a string sql
+			PreparedStatement ps = connection.prepareStatement(sql);
+			//lança os parametros recuperados do objeto
+			ps.setString(1, comprador.getCpf());
+			ps.setString(2, comprador.getNome());
+			ps.setInt(3, comprador.getId());
+			
+			// executa a query finalmente
+			ps.executeUpdate(); 
+			
+			ConnectionFactory.closeConnection(connection, ps);
+			System.out.println("Registro atualizado com sucesso");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static List<Comprador> selectAll() {
 		String sql = "SELECT id, nome, cpf FROM comprador";
 		Connection connection = ConnectionFactory.getConnection();
@@ -98,6 +126,45 @@ public class CompradorDB {
 				compradorList.add(new Comprador(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf")));
 			}
 			ConnectionFactory.closeConnection(connection, stmt, rs);
+			return compradorList;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static List<Comprador> findByNameSQLInjection(String nome) {
+		String sql = "SELECT id, nome, cpf FROM comprador where nome like '" + nome + "'";
+		Connection connection = ConnectionFactory.getConnection();
+		List<Comprador> compradorList = new ArrayList<>();
+		
+		try {
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				compradorList.add(new Comprador(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf")));
+			}
+			ConnectionFactory.closeConnection(connection, stmt, rs);
+			return compradorList;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static List<Comprador> findByNamePreparedStatement(String nome) {
+		String sql = "SELECT id, nome, cpf FROM comprador where nome like ?";
+		Connection connection = ConnectionFactory.getConnection();
+		List<Comprador> compradorList = new ArrayList<>();
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + nome + "%");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				compradorList.add(new Comprador(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf")));
+			}
+			ConnectionFactory.closeConnection(connection, ps, rs);
 			return compradorList;
 		} catch (SQLException e) {
 			e.printStackTrace();

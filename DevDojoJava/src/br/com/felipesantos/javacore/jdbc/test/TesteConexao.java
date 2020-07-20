@@ -1,5 +1,6 @@
 package br.com.felipesantos.javacore.jdbc.test;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import br.com.felipesantos.javacore.jdbc.classes.Comprador;
@@ -7,7 +8,7 @@ import br.com.felipesantos.javacore.jdbc.db.CompradorDB;
 
 public class TesteConexao {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 //		List<Comprador> listaComprador = selecionarTudo();
 //		listaComprador.forEach(lista -> System.out.println(lista));
 //		
@@ -26,7 +27,8 @@ public class TesteConexao {
 		//CompradorDB.updatePreparedStatement(new Comprador(1, "156.369.789-12", "Carmelita da Silva"));
 		//System.out.println(CompradorDB.findByNameCallableStatement("oao"));
 		//System.out.println(CompradorDB.findByNameRowSet("oao"));
-		CompradorDB.updateRowSet(new Comprador(1, "251.963.154-00", "Wolverine"));
+		//CompradorDB.updateRowSet(new Comprador(1, "251.963.154-00", "Wolverine"));
+		CompradorDB.saveTransaction();
 		
 	}
 	

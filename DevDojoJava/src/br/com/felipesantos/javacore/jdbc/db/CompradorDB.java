@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,33 @@ public class CompradorDB {
 			System.out.println("Registro inserido com sucesso");
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	//Transaction | ou salva tudo ou nao salva nada | atomicidade | commit & rollback
+	public static void saveTransaction() throws SQLException {
+		String sql = "INSERT INTO comprador (`cpf`, `nome`) VALUES ('Teste', 'Teste')";
+		String sql2 = "INSERT INTO comprador (`cpf`, `nome`) VALUES ('Teste2', 'Teste2')";
+		String sql3 = "INSERT INTO comprador (`cpf`, `nome`) VALUES ('Teste3', 'Teste3')";
+		Connection connection = ConnectionFactory.getConnection();
+		Savepoint savepoint = null; // os drivers geralmente suportam até 1 savepoint
+		
+		try {
+			connection.setAutoCommit(false);// NÃO PERMITIDA A ALTERAÇÃO DO BD
+			Statement stmt = connection.createStatement();
+			stmt.executeUpdate(sql);
+			savepoint = connection.setSavepoint("One");// pra salvar o primeiro insert num savepoint
+			stmt.executeUpdate(sql2);
+			if(true)
+				throw new SQLException();// LANÇANDO UMA EXCEÇÃO PRA DIZER TEVE UM PROBLEMA NO 3 INSERT			
+			stmt.executeUpdate(sql3); 
+			connection.commit();// PERMITIDA A ALTERAÇÃO
+			ConnectionFactory.closeConnection(connection, stmt);
+			System.out.println("Registro inserido com sucesso");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			connection.rollback(savepoint);// faz rollback até o savepoint
+			connection.commit();// commit apenas o savepoint 
 		}
 	}
 	

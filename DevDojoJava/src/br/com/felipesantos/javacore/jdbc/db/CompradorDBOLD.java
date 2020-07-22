@@ -18,7 +18,7 @@ import br.com.felipesantos.javacore.jdbc.classes.Comprador;
 import br.com.felipesantos.javacore.jdbc.classes.MyRowSetListener;
 import br.com.felipesantos.javacore.jdbc.conn.ConnectionFactory;
 
-public class CompradorDB {
+public class CompradorDBOLD {
 	
 	public static void save(Comprador comprador) {
 		String sql = "INSERT INTO comprador (`cpf`, `nome`) VALUES ('" + comprador.getCpf() + "', '" + comprador.getNome() +"')";

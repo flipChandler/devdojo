@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.com.felipesantos.javacore.jdbc.classes.Comprador;
-import br.com.felipesantos.javacore.jdbc.db.CompradorDB;
+import br.com.felipesantos.javacore.jdbc.db.CompradorDBOLD;
 
 public class TesteConexao {
 
@@ -28,32 +28,32 @@ public class TesteConexao {
 		//System.out.println(CompradorDB.findByNameCallableStatement("oao"));
 		//System.out.println(CompradorDB.findByNameRowSet("oao"));
 		//CompradorDB.updateRowSet(new Comprador(1, "251.963.154-00", "Wolverine"));
-		CompradorDB.saveTransaction();
+		CompradorDBOLD.saveTransaction();
 		
 	}
 	
 	public static void inserir() {
 		Comprador comprador = new Comprador("159.357.951-41", "Charlie Brown");
-		CompradorDB.save(comprador);		
+		CompradorDBOLD.save(comprador);		
 	}
 	
 	public static void deletar() {
 		Comprador comprador = new Comprador();
 		comprador.setId(4);
-		CompradorDB.delete(comprador);
+		CompradorDBOLD.delete(comprador);
 	}
 	
 	public static void atualizar() {
 		Comprador comprador = new Comprador(6,"000.000.000-00", "Mariana Baldini" );
-		CompradorDB.update(comprador);
+		CompradorDBOLD.update(comprador);
 	}
 	
 	public static List<Comprador> selecionarTudo() {
-		return CompradorDB.selectAll();
+		return CompradorDBOLD.selectAll();
 	}
 
 	public static List<Comprador> buscarPorNome(String nome) {
-		return CompradorDB.findByName(nome);
+		return CompradorDBOLD.findByName(nome);
 	}
 
 }

@@ -41,11 +41,11 @@ private char c;
 				Thread.yield();// objetivo colocar a thread atual em runnable e colocar em running, threads de mesma prioridade
 			}
 			
-//			try {
-//				Thread.sleep(2000);// vai dormir por 2 segundos | metodo estático
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
+			try {
+				Thread.sleep(200);// 
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -55,7 +55,7 @@ private char c;
 
 public class ThreadTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		System.out.println(ThreadExemplo.currentThread().getName());
 		// A JVM vai fazer o schedule de qual thread começa e qual termina
 		// thread Daemon e user, enqto tiver uma thread User executando, a JVM não para a execução, diferente de uma thread Daemon
@@ -76,10 +76,11 @@ public class ThreadTest {
 		Thread t4 = new Thread(new ThreadExemploRunnable('D'), "T4");
 		
 		t4.setPriority(Thread.MAX_PRIORITY); // a execução de t4 será prioridade
-		t1.start();
+		t1.start(); 
+		t1.join(); // main só executa t2, depois de executar t1 inteiro... t1 join main
 		t2.start();
-		t3.start();
-		t4.start();
+//		t3.start();
+//		t4.start();
 		
 		
 	}

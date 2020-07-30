@@ -36,6 +36,16 @@ private char c;
 			if ( i % 100 == 0) {
 				System.out.println();
 			}
+			
+			if (!Thread.currentThread().getName().equals("T4")) {
+				Thread.yield();// objetivo colocar a thread atual em runnable e colocar em running, threads de mesma prioridade
+			}
+			
+//			try {
+//				Thread.sleep(2000);// vai dormir por 2 segundos | metodo estático
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
 		}
 	}
 
@@ -51,17 +61,21 @@ public class ThreadTest {
 		// thread Daemon e user, enqto tiver uma thread User executando, a JVM não para a execução, diferente de uma thread Daemon
 		// toda thread tem um nome | thread = processamento paralelo
 		// uma thread pode afetar a execução de outra
+		// O Scheduler da JVM que vai definir qndo uma thread começa e a outra termina
+		// uma vez iniciado uma thread, ela não pode ser iniciada novamente
+		// estado das threads: new, runnable (viva), running e dead
 		
 //		ThreadExemplo t1 = new ThreadExemplo('A');
 //		ThreadExemplo t2 = new ThreadExemplo('B');
 //		ThreadExemplo t3 = new ThreadExemplo('C');
 //		ThreadExemplo t4 = new ThreadExemplo('D');
 		
-		Thread t1 = new Thread(new ThreadExemploRunnable('A'));
-		Thread t2 = new Thread(new ThreadExemploRunnable('B'));
-		Thread t3 = new Thread(new ThreadExemploRunnable('C'));
-		Thread t4 = new Thread(new ThreadExemploRunnable('D'));
+		Thread t1 = new Thread(new ThreadExemploRunnable('A'), "T1");
+		Thread t2 = new Thread(new ThreadExemploRunnable('B'), "T2");
+		Thread t3 = new Thread(new ThreadExemploRunnable('C'), "T3");
+		Thread t4 = new Thread(new ThreadExemploRunnable('D'), "T4");
 		
+		t4.setPriority(Thread.MAX_PRIORITY); // a execução de t4 será prioridade
 		t1.start();
 		t2.start();
 		t3.start();

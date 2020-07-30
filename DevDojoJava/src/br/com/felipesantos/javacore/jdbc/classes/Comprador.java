@@ -2,8 +2,8 @@ package br.com.felipesantos.javacore.jdbc.classes;
 
 public class Comprador {
 	private Integer id;
-	private String cpf;
 	private String nome;
+	private String cpf;
 	
 	public Comprador() {
 		

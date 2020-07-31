@@ -24,7 +24,7 @@ public class Pessoa {
 	}
 
 
-
+	// DESIGN PATTERN: BUILDER
 	public static class PessoaBuilder {
 		private String nome;
 		private String ultimoNome;

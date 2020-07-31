@@ -10,7 +10,7 @@ public class TestePessoa {
 				.nomeDoMeio("dos")
 				.ultimoNome("Santos")
 				.nomeDoPai("José")
-				.criarPessoa();
+				.build();
 		
 		System.out.println(pessoa);
 

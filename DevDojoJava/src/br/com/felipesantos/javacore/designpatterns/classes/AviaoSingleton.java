@@ -4,13 +4,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class AviaoSingleton {
-	// EAGER INITIALIZATION
-	private static final AviaoSingleton INSTANCE = new AviaoSingleton();
-	private Set<String> assentosDisponiveis;
+	//private static final AviaoSingleton INSTANCE = new AviaoSingleton(); // EAGER INITIALIZATION
 	
+	private static AviaoSingleton INSTANCE;	
+	private Set<String> assentosDisponiveis;	
 	
-	
+	// LAZY INITIALIZATION | espera a utilização do objeto para alocação de memória do construtor | só cria o objeto se for utilizá-lo
 	public static AviaoSingleton getInstance() {
+		if (INSTANCE == null) {
+			synchronized (AviaoSingleton.class) { // faz um double check para não ser possível criar aviao em duplicidade em razão de threads simultaneas, no LAZY
+				if (INSTANCE == null) {
+					INSTANCE = new AviaoSingleton();
+				}
+			}
+		}
+		
 		return INSTANCE;
 	}
 

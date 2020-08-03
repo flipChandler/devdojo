@@ -7,13 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.felipesantos.javacore.jdbc.CarroDAO;
 import br.com.felipesantos.javacore.jdbc.classes.Carro;
 import br.com.felipesantos.javacore.jdbc.classes.Comprador;
 import br.com.felipesantos.javacore.jdbc.conn.ConnectionFactory;
 
-public class CarroDAO {
+public class CarroDAOImpl implements CarroDAO {
 	
-	public static void save(Carro carro) {
+	@Override
+	public void save(Carro carro) {
 		String sql = "INSERT INTO carro (`nome`, `placa`, `comprador_id`) VALUES (?, ?, ?)";			
 
 		try (Connection connection = ConnectionFactory.getConnection(); // try-resources ñ precisa do connection.close()
@@ -28,7 +30,8 @@ public class CarroDAO {
 		}
 	}
 
-	public static void delete(Carro carro) {
+	@Override
+	public void delete(Carro carro) {
 		if (carro == null || carro.getId() == null) {
 			System.out.println("Não foi possível excluir o registro!");
 			return;
@@ -48,7 +51,8 @@ public class CarroDAO {
 	}
 
 	// atualiza, porém, se o id não existir, o método não reporta o erro
-	public static void update(Carro carro) {
+	@Override
+	public void update(Carro carro) {
 		if (carro == null || carro.getId() == null) {
 			System.out.println("Não foi possível atualizar o registro!");
 			return;
@@ -70,7 +74,8 @@ public class CarroDAO {
 		}
 	}
 
-	public static List<Carro> selectAll() {
+	@Override
+	public List<Carro> selectAll() {
 		String sql = "SELECT id, nome, placa, comprador_id FROM carro";
 
 		List<Carro> carroList = new ArrayList<>();
@@ -89,7 +94,8 @@ public class CarroDAO {
 		return null;
 	}
 
-	public static List<Carro> findByName(String nome) {
+	@Override
+	public List<Carro> findByName(String nome) {
 		String sql = "SELECT id, nome, placa, comprador_id FROM carro where nome like ?";
 		
 		List<Carro> carroList = new ArrayList<>();
@@ -112,7 +118,8 @@ public class CarroDAO {
 		return null;
 	}
 
-	public static Carro findById(Integer id) {
+	@Override
+	public Carro findById(Integer id) {
 		String sql = "SELECT id, nome, placa, comprador_id FROM carro where id = ?";
 		
 		Carro carro = null;

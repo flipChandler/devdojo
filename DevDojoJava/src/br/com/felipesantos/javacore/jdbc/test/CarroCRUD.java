@@ -5,12 +5,15 @@ import static java.lang.System.out;
 import java.util.List;
 import java.util.Scanner;
 
+import br.com.felipesantos.javacore.jdbc.CarroDAO;
 import br.com.felipesantos.javacore.jdbc.classes.Carro;
 import br.com.felipesantos.javacore.jdbc.classes.Comprador;
-import br.com.felipesantos.javacore.jdbc.db.CarroDAO;
+import br.com.felipesantos.javacore.jdbc.db.CarroDAOImpl;
 
 public class CarroCRUD {
 	private static Scanner scanner = new Scanner(System.in);  
+	// se quiser usar um CRUD NoSQL, é só CarroDAO (interface) receber CarroDAONoSQLImpl que o codigo não quebra
+	private static CarroDAO carroDAO = new CarroDAOImpl();
 	
 	public static void executar(int op) {
 		switch(op) {
@@ -46,7 +49,7 @@ public class CarroCRUD {
 		
 		carro.setComprador(compradorList.get(index));
 		
-		CarroDAO.save(carro);
+		carroDAO.save(carro);
 	}
 	
 	private static void atualizar() {
@@ -66,12 +69,12 @@ public class CarroCRUD {
 			carro.setPlaca(placa);
 		}
 		
-		CarroDAO.update(carro);
+		carroDAO.update(carro);
 		
 	}
 	
 	public static List<Carro> listar() {
-		List<Carro> carroList = CarroDAO.selectAll();
+		List<Carro> carroList = carroDAO.selectAll();
 		for (int i = 0; i < carroList.size(); i++) {
 			Carro carro = carroList.get(i);
 			out.println("|" + i + "|" + carro.getNome() + " " + carro.getPlaca() + " " + carro.getComprador().getNome());
@@ -80,7 +83,7 @@ public class CarroCRUD {
 	}
 	
 	private static void buscarPorNome(String nome) {
-		List<Carro> carroList = CarroDAO.findByName(nome);
+		List<Carro> carroList = carroDAO.findByName(nome);
 		for (int i = 0; i < carroList.size(); i++) {
 			Carro carro = carroList.get(i);
 			out.println("|" + i + "|" + carro.getNome() + " " + carro.getPlaca() + " " + carro.getComprador().getNome());
@@ -95,7 +98,7 @@ public class CarroCRUD {
 		System.out.println("Tem certeza? S/N");
 		String opcao = scanner.nextLine();
 		if (opcao.startsWith("s")) {
-			CarroDAO.delete(carroList.get(index));
+			carroDAO.delete(carroList.get(index));
 		}
 	}
 

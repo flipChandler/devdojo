@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.felipesantos.javacore.jdbc.CarroDAO;
 import br.com.felipesantos.javacore.jdbc.classes.Carro;
 import br.com.felipesantos.javacore.jdbc.classes.Comprador;
 import br.com.felipesantos.javacore.jdbc.conn.ConnectionFactory;

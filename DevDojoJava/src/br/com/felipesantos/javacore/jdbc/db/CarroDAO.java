@@ -1,4 +1,4 @@
-package br.com.felipesantos.javacore.jdbc;
+package br.com.felipesantos.javacore.jdbc.db;
 
 import java.util.List;
 

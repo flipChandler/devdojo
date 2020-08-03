@@ -5,9 +5,9 @@ import static java.lang.System.out;
 import java.util.List;
 import java.util.Scanner;
 
-import br.com.felipesantos.javacore.jdbc.CarroDAO;
 import br.com.felipesantos.javacore.jdbc.classes.Carro;
 import br.com.felipesantos.javacore.jdbc.classes.Comprador;
+import br.com.felipesantos.javacore.jdbc.db.CarroDAO;
 import br.com.felipesantos.javacore.jdbc.db.CarroDAOImpl;
 
 public class CarroCRUD {

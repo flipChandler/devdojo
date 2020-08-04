@@ -1,5 +1,7 @@
 package br.com.felipesantos.javacore.lambdas.test;
 
+import java.util.function.Predicate;
+
 import br.com.felipesantos.javacore.lambdas.classes.Carro;
 import br.com.felipesantos.javacore.lambdas.interfaces.CarroPredicate;
 
@@ -25,7 +27,7 @@ public class LambdaTest {
 		System.out.println(carroPredicate.test(new Carro("verde", 2012)));
 		
 		
-		CarroPredicate carroPredicate2 = (Carro carro) -> carro.getCor().equals("verde");
+		Predicate<Carro> carroPredicate2 = (Carro carro) -> carro.getCor().equals("verde");
 		System.out.println(carroPredicate2.test(new Carro("verde", 2015)));
 		
 		Runnable runnable = () -> System.out.println("Dentro do run");

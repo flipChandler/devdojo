@@ -26,9 +26,13 @@ public class LambdaTest {
 		
 		System.out.println(carroPredicate.test(new Carro("verde", 2012)));
 		
-		
+		// interface Predicate<T> = test(T t)  | test(T t) é a assinatura funcional do método
 		Predicate<Carro> carroPredicate2 = (Carro carro) -> carro.getCor().equals("verde");
 		System.out.println(carroPredicate2.test(new Carro("verde", 2015)));
+		
+		
+		CarroPredicate carroPredicate3 = (Carro carro) -> carro.getCor().equals("verde"); // utilizando a CarroPredicate
+		System.out.println(carroPredicate3.test(new Carro("verde", 2015)));
 		
 		Runnable runnable = () -> System.out.println("Dentro do run");
 		new Thread(runnable).start();

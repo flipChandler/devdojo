@@ -41,8 +41,21 @@ public class StreamTest {
 				.collect(Collectors.toList()); // retorne nomes2 em lista 
 		
 		System.out.println(nomes2);
+
+		// métodos do tipo
+		//intermediate -> retorna outro stream
+		// terminal -> retorna void, int, String
 		
+		System.out.println(pessoas
+				.stream()
+				.distinct() 
+				.filter(pessoa -> pessoa.getIdade() < 35)
+				.map(Pessoa::getNome)
+				.count()); // método terminal | retorna um int 
 			
+		pessoas.stream()
+			.distinct()
+			.forEach(pessoa -> System.out.println(pessoa.getNome()));
 	}
 
 }

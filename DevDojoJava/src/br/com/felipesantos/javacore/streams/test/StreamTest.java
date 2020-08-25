@@ -37,6 +37,7 @@ public class StreamTest {
 				.filter(pessoa -> pessoa.getIdade() < 35) // filtrar pessoas < 35 anos
 				.sorted(Comparator.comparing(Pessoa::getNome)) // ordenando pelo nome 
 				.limit(3) // top 3
+				.skip(1) // pula o primeiro valor
 				.map(Pessoa::getNome) // mapeie as pessoas pelo nome
 				.collect(Collectors.toList()); // retorne nomes2 em lista 
 		

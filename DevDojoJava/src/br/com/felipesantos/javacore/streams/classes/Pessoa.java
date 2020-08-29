@@ -15,6 +15,7 @@ public class Pessoa {
 		this.salario = salario;
 	}
 
+	//ArrayList
 	public static List<Pessoa> bancoDePessoas() {
 		return Arrays.asList(
 				new Pessoa("Felipe dos Santos", 33, 2000),
@@ -23,10 +24,10 @@ public class Pessoa {
 				new Pessoa("Angelina Jolie", 33, 8092),
 				new Pessoa("Brad Pitt", 63, 12000),
 				new Pessoa("Mel Lisboa", 41, 2600),
-				new Pessoa("Eva Mendes", 39, 4300),
+				new Pessoa("Eva Mendes", 19, 4300),
 				new Pessoa("Mia Khalifa", 36, 5740),
 				new Pessoa("Mila Kunis", 37, 9000),
-				new Pessoa("Natalie Portman", 40, 12000),
+				new Pessoa("Natalie Portman", 25, 12000),
 				new Pessoa("Josiani Garcia", 33, 3600),
 				new Pessoa("Suzi Rego", 60, 1900),
 				new Pessoa("Josh Lawrence", 24, 2000),

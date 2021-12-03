@@ -1,0 +1,23 @@
+Quando instacia Funcionario
+
+
+saída
+-------------------
+Bloco de inicialização estático de Pessoa
+Bloco de inicialização static do funcionario 
+Bloco de inicialização de pessoa 1
+Bloco de inicialização de pessoa 2
+Dentro do construtor de Pessoa
+Bloco de inicialização do funcionario 1
+Bloco de inicialização do funcionario 2
+Dentro do construtor de funcionario
+
+1) espaço em memoria é alocado para o objeto sendo construido
+2) cada um dos atributos do objeto é criado e inicializado com os valores default
+3) O construtor da superclasse é chamado
+4) a inicalização dos atributos via declaração e o codigo do bloco de inicialização da superclasse são executados na ordem em que aparecem
+5) o codigo do construtor da superclasse é chamado
+6) passo 4 para a subclasse é executado
+7) o codigo do construtor da classe é executado
+
+

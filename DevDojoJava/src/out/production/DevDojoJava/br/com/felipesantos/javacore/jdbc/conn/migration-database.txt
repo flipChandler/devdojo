@@ -1,0 +1,33 @@
+create database agencia;
+use agencia;
+
+create table comprador(
+	id int not null auto_increment primary key,
+    cpf varchar(14) not null,
+    nome varchar(70) not null
+);
+
+create table carro(
+	id int not null auto_increment primary key,
+    placa varchar(8) not null,
+    nome varchar(45) not null,
+    comprador_id int,
+    index `comprador_id_idx` (`comprador_id` ASC),
+    constraint `comprador_id` foreign key (`comprador_id`) references `agencia`.`comprador`(`id`)
+    on delete no action on update no action
+    );
+
+select * from comprador;
+select * from carro;
+
+
+-- CRIAMOS UMA STORED PROCEDURE NA AULA 150 DE CALLABLE STATEMENTS
+
+DELIMITER //
+CREATE PROCEDURE SP_GetCompradoresPorNome(termo VARCHAR(100))
+	BEGIN
+		SELECT * FROM comprador WHERE nome LIKE termo;
+	END//
+DELIMITER ;
+
+CALL SP_GetCompradoresPorNome('%oao%'); 

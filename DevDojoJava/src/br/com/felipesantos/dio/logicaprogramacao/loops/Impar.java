@@ -1,4 +1,4 @@
-package br.com.felipesantos.dio.loopfor;
+package br.com.felipesantos.dio.logicaprogramacao.loops;
 
 public class Impar {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package br.com.felipesantos.dio.arrays;
+package br.com.felipesantos.dio.logicaprogramacao.arrays;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;

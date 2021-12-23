@@ -1,4 +1,4 @@
-package br.com.felipesantos.dio.desafio;
+package br.com.felipesantos.dio.logicaprogramacao.desafios;
 
 import java.util.Scanner;
 

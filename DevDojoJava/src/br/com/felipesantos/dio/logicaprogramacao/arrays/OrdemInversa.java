@@ -1,4 +1,4 @@
-package br.com.felipesantos.dio.arrays;
+package br.com.felipesantos.dio.logicaprogramacao.arrays;
 
 public class OrdemInversa {
     public static void main(String[] args) {

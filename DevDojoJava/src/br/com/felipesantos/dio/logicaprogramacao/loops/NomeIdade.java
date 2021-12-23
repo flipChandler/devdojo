@@ -1,4 +1,4 @@
-package br.com.felipesantos.dio.loops;
+package br.com.felipesantos.dio.logicaprogramacao.loops;
 
 import java.util.Scanner;
 
